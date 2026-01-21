@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U99 - El Cambio con María Irma y Freddy Arenas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colores del Partido de la U extraídos de tus imágenes */
+            --u-blue: #004a99;
+            --u-accent: #00f2fe;
+            --u-gradient: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700, #008000, #0000ff, #4b0082, #ee82ee);
+            --u-dark: #06090f;
+            --glass: rgba(255, 255, 255, 0.07);
+            --neon-glow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--u-dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* FONDO DINÁMICO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, #0d1b2a 0%, #06090f 100%);
+        }
+
+        /* LOGO SUPERIOR EXTERNO AL FORMULARIO */
+        .top-logo-brand {
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: var(--glass);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 70px 40px 40px;
+            border-radius: 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* IMAGEN CIRCULAR DE LOS CANDIDATOS */
+        .profile-img-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            top: -70px;
+            left: 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* Usamos tu logo de candidatos centralizado */
+            background: url('https://raw.githubusercontent.com/caldasconmariairma/caldasconmariairma.github.io/main/Logo-U99-Crm.jpeg') no-repeat center center;
+            background-size: cover;
+            border: 4px solid #fff;
+            box-shadow: var(--neon-glow);
+            transition: 0.5s ease;
+            z-index: 2;
+        }
+
+        /* FORMULARIO Y EFECTOS */
+        .header-text { text-align: center; margin-top: 60px; margin-bottom: 25px; }
+        .header-text h1 { font-size: 28px; font-weight: 800; margin: 0; background: var(--u-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header-text p { font-size: 14px; color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
+
+        .motivation {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 35px;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+
+        .form-group { position: relative; margin-bottom: 24px; }
+        
+        label { 
+            font-size: 11px; 
+            color: var(--u-accent); 
+            text-transform: uppercase; 
+            margin-left: 12px;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 22px;
+            margin-top: 8px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            color: #fff;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.05);
+            transform: scale(1.01);
+        }
+
+        /* BOTÓN CON COLORES DEL PARTIDO */
+        button {
+            width: 100%;
+            background: var(--u-gradient);
+            color: #000;
+            padding: 22px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.4s;
+            text-transform: uppercase;
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.02);
+            filter: brightness(1.2);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.4);
+        }
+
+        /* SECCIÓN LIDERAZGO */
+        .liderazgo {
+            background: #fff;
+            color: #111;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 50px auto 0;
+        }
+
+        .member-card {
+            background: #f4f8fb;
+            padding: 40px;
+            border-radius: 30px;
+            width: 320px;
+            border-top: 8px solid var(--u-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .member-card h3 { margin: 15px 0 10px; font-size: 24px; color: var(--u-blue); }
+        .member-card span { font-size: 13px; font-weight: 800; color: #ff0000; text-transform: uppercase; }
+
+        @media (max-width: 500px) {
+            .container { padding: 60px 25px 30px; margin-top: 80px; }
+            .top-logo-brand { max-width: 200px; }
+            .profile-img { width: 130px; height: 130px; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <img src="https://raw.githubusercontent.com/caldasconmariairma/caldasconmariairma.github.io/main/Logo-U99.png" alt="Logo Partido de la U" class="top-logo-brand">
+
+    <div class="container">
+        <div class="profile-img-container">
+            <div class="profile-img"></div>
+        </div>
+        
+        <div class="header-text">
+            <h1>LA U NOS UNE</h1>
+            <p>María Irma SENADO • Freddy Arenas ASAMBLEA</p>
+        </div>
+
+        <p class="motivation">
+            "Caldas necesita líderes con experiencia. Súmate a María Irma y Freddy Arenas para transformar nuestro departamento."
+        </p>
+
+        <form action="https://crm.caldasconmariairma.co/api/v1/LeadCapture/b63e192f97f4c8c445f4bd8c1202edb4" method="POST">
+            
+            <div class="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" name="firstName" placeholder="Nombre y apellidos" required>
+            </div>
+
+            <div class="form-group">
+                <label>Cédula de Ciudadanía</label>
+                <input type="number" name="description" placeholder="Número de identificación" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tu WhatsApp</label>
+                <input type="tel" name="phoneNumber" placeholder="3XX XXX XXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="emailAddress" placeholder="tu@correo.com" required>
+            </div>
+
+            <button type="submit">¡UNIRME AL CAMBIO AHORA!</button>
+
+        </form>
+    </div>
+</section>
+
+<section class="liderazgo">
+    <h2 style="font-size: 36px; font-weight: 800; color: var(--u-blue);">Nuestra Alianza por Caldas</h2>
+    <div class="team-grid">
+        <div class="member-card">
+            <span>Vota U99 - SENADO</span>
+            <h3>María Irma Noreña</h3>
+            <p>Fuerza y gestión para traer desarrollo real a todos los municipios de Caldas.</p>
+        </div>
+        <div class="member-card">
+            <span>Vota U - ASAMBLEA</span>
+            <h3>Freddy Arenas</h3>
+            <p>El amigo de Caldas, trabajando desde la asamblea por el agro y la seguridad.</p>
+        </div>
+    </div>
+    <p style="margin-top: 70px; font-size: 12px; color: #888; font-weight: 600;">© 2026 SAPÌEN DIGITAL | EXPERTOS EN ESTRATEGIA ELECTORAL</p>
+</section>
+
+</body>
+</html>
